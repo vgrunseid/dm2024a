@@ -5,7 +5,7 @@ require("data.table")
 require("rpart")
 
 PARAM <- list()
-PARAM$semilla <- 102191
+PARAM$semilla <- 800011
 
 #------------------------------------------------------------------------------
 # particionar agrega una columna llamada fold a un dataset
@@ -33,7 +33,7 @@ particionar <- function(
 
 # Aqui se debe poner la carpeta de la computadora local
 # Establezco el Working Directory
-setwd("X:\\gdrive\\itba2024a\\")
+setwd("/Users/vivi/Google Drive/ITBA/mineria")
 
 # cargo los datos
 dataset <- fread("./datasets/dataset_pequeno.csv")

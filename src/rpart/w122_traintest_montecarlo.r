@@ -7,7 +7,7 @@ require("parallel")
 
 PARAM <- list()
 # reemplazar por las propias semillas
-PARAM$semillas <- c(102191, 200177, 410551, 552581, 892237)
+PARAM$semillas <- c(503557, 503567, 503593, 503599, 503609, 503611, 503621, 503627, 503647, 503653, 503663, 503677, 503693, 503707, 503723, 503731, 503753, 503767, 503777, 503789)
 
 #------------------------------------------------------------------------------
 # particionar agrega una columna llamada fold a un dataset que consiste
@@ -78,11 +78,17 @@ ArbolEstimarGanancia <- function(semilla, param_basicos) {
 #------------------------------------------------------------------------------
 
 # Aqui se debe poner la carpeta de la computadora local
-setwd("~/buckets/b1/") # Establezco el Working Directory
+#setwd("~/buckets/b1/") # Establezco el Working Directory
+
+setwd("/Users/vivi/Google Drive/ITBA/mineria")
+
+
+
 # cargo los datos
 
 # cargo los datos
-dataset <- fread("~/datasets/dataset_pequeno.csv")
+dataset <- fread("./datasets/dataset_pequeno.csv")
+
 
 # trabajo solo con los datos con clase, es decir 202107
 dataset <- dataset[clase_ternaria != ""]
@@ -105,7 +111,7 @@ salidas <- mcmapply(ArbolEstimarGanancia,
   PARAM$semillas, # paso el vector de semillas
   MoreArgs = list(param_basicos), # aqui paso el segundo parametro
   SIMPLIFY = FALSE,
-  mc.cores = 5  # en Windows este valor debe ser 1
+  mc.cores = 1  # en Windows este valor debe ser 1
 )
 
 # muestro la lista de las salidas en testing
