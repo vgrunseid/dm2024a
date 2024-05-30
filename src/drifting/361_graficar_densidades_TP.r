@@ -9,8 +9,8 @@ gc() # garbage collection
 require("data.table")
 require("rpart")
 
-kmes0 <- 202107
-kmes1 <- 202109
+#kmes0 <- 202107
+#kmes1 <- 202109
 
 future <- c(202109)
 final_train <- c(202007, 202006, 202105, 202104,
@@ -22,36 +22,36 @@ final_train <- c(202007, 202006, 202105, 202104,
 graficar_campo <- function(campo) {
   # quito de grafico las colas del 5% de las densidades
   qA <- quantile(dataset[foto_mes %in% final_train, get(campo)],
-    prob = c(0.05, 0.95), na.rm = TRUE
+                 prob = c(0.05, 0.95), na.rm = TRUE
   )
-
+  
   qB <- quantile(dataset[foto_mes %in% future, get(campo)],
-    prob = c(0.05, 0.95), na.rm = TRUE
+                 prob = c(0.05, 0.95), na.rm = TRUE
   )
-
+  
   xxmin <- pmin(qA[[1]], qB[[1]])
   xxmax <- pmax(qA[[2]], qB[[2]])
-
+  
   densidad_A <- density(dataset[foto_mes %in% final_train, get(campo)],
-    kernel = "gaussian", na.rm = TRUE
+                        kernel = "gaussian", na.rm = TRUE
   )
-
-  densidad_B <- density(dataset[foto_mes == kmes1, get(campo)],
-    kernel = "gaussian", na.rm = TRUE
+  
+  densidad_B <- density(dataset[foto_mes %in% future, get(campo)],
+                        kernel = "gaussian", na.rm = TRUE
   )
-
+  
   plot(densidad_A,
-    col = "blue",
-    xlim = c(xxmin, xxmax),
-    ylim = c(0, pmax(max(densidad_A$y), max(densidad_B$y))),
-    main = campo
+       col = "blue",
+       xlim = c(xxmin, xxmax),
+       ylim = c(0, pmax(max(densidad_A$y), max(densidad_B$y))),
+       main = campo
   )
-
+  
   lines(densidad_B, col = "red", lty = 2)
-
+  
   legend("topright",
-    legend = c( kmes0, kmes1),
-    col = c("blue", "red"), lty = c(1, 2)
+         legend = "iyf",
+         col = c("blue", "red"), lty = c(1, 2)
   )
 }
 #------------------------------------------------------------------------------
@@ -67,12 +67,14 @@ dir.create("./exp/", showWarnings = FALSE)
 dir.create("./exp/DR3610/", showWarnings = FALSE)
 setwd("./exp/DR3610/")
 
+final_train <- as.vector(dataset %>% distinct(foto_mes))$foto_mes
+
 future <- c(202109)
-final_train <- c(202007, 202006, 202105, 202104,
-                             202103, 202102, 202101, 202012, 202011, 202010, 202009)
+#final_train <- c(202007, 202006, 202105, 202104,
+#                             202103, 202102, 202101, 202012, 202011, 202010, 202009)
 
 
-dataset <- dataset[foto_mes %in% final_train]
+#dataset <- dataset[foto_mes %in% final_train]
 
 # creo la clase_binaria SI={ BAJA+1, BAJA+2 }    NO={ CONTINUA }
 dataset[
@@ -103,7 +105,7 @@ campos_buenos <- setdiff(
 
 
 
-pdf( paste0("densidades_", kmes0, "_", kmes1, ".pdf") )
+pdf( paste0("densidades_entrenamiento _testing.pdf") )
 
 for (campo in campos_buenos) {
   cat(campo, "  ")
