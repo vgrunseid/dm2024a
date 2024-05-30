@@ -8,9 +8,10 @@ gc() # garbage collection
 
 require("data.table")
 require("rpart")
-install.packages("tidyverse")
-require("tidyverse")
-
+if (!require("tidyverse")) {
+  install.packages("tidyverse")
+  library("tidyverse")
+}
 #kmes0 <- 202107
 #kmes1 <- 202109
 
