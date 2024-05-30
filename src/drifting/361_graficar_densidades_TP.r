@@ -53,7 +53,7 @@ graficar_campo <- function(campo) {
   lines(densidad_B, col = "red", lty = 2)
   
   legend("topright",
-         legend = "iyf",
+         legend = "training", "test",
          col = c("blue", "red"), lty = c(1, 2)
   )
 }
