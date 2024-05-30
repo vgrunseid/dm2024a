@@ -53,7 +53,7 @@ graficar_campo <- function(campo) {
   lines(densidad_B, col = "red", lty = 2)
   
   legend("topright",
-         legend = "training", "test",
+         legend = c("training", "test"),
          col = c("blue", "red"), lty = c(1, 2)
   )
 }
@@ -63,7 +63,8 @@ graficar_campo <- function(campo) {
 setwd("~/buckets/b1/") # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar
-dataset <- fread("~/buckets/b1/expw/DT-0001/dataset.csv.gz")
+#dataset <- fread("~/buckets/b1/expw/DT-0001/dataset.csv.gz")
+dataset <- fread("~/buckets/b1/expw/DR-0001/dataset.csv.gz")
 #DT_incorporar_dataset_competencia2024()
 
 dir.create("./exp/", showWarnings = FALSE)
@@ -110,7 +111,7 @@ campos_buenos <- campos_buenos[campos_buenos %like%
 
 
 
-pdf( paste0("densidades_entrenamiento _testing.pdf") )
+pdf( paste0("densidades_entrenamiento_testing DR01.pdf") )
 
 for (campo in campos_buenos) {
   cat(campo, "  ")
