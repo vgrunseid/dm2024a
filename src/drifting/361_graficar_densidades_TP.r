@@ -105,6 +105,8 @@ campos_buenos <- setdiff(
   campos_buenos,
   c("foto_mes", "clase_ternaria", "clase_binaria")
 )
+campos_buenos <- campos_buenos[campos_buenos %like%
+                                 "^(m|Visa_m|Master_m|vm_m)"]
 
 
 
