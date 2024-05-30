@@ -64,7 +64,8 @@ setwd("~/buckets/b1/") # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar
 #dataset <- fread("~/buckets/b1/expw/DT-0001/dataset.csv.gz")
-dataset <- fread("~/buckets/b1/expw/DR-0001/dataset.csv.gz")
+#dataset <- fread("~/buckets/b1/expw/DR-0001/dataset.csv.gz")
+dataset <- fread("~/buckets/b1/expw/DR-0002/dataset.csv.gz")
 #DT_incorporar_dataset_competencia2024()
 
 dir.create("./exp/", showWarnings = FALSE)
@@ -111,7 +112,7 @@ campos_buenos <- campos_buenos[campos_buenos %like%
 
 
 
-pdf( paste0("densidades_entrenamiento_testing DR01.pdf") )
+pdf( paste0("densidades_entrenamiento_testing DR02.pdf") )
 
 for (campo in campos_buenos) {
   cat(campo, "  ")
