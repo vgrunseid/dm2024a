@@ -8,6 +8,8 @@ gc() # garbage collection
 
 require("data.table")
 require("rpart")
+install.packages("tidyverse")
+require("tidyverse")
 
 #kmes0 <- 202107
 #kmes1 <- 202109
