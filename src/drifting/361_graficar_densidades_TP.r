@@ -8,16 +8,16 @@ gc() # garbage collection
 
 require("data.table")
 require("rpart")
-if (!require("tidyverse")) {
-  install.packages("tidyverse")
-  library("tidyverse")
-}
+#if (!require("tidyverse")) {
+#  install.packages("tidyverse")
+#  library("tidyverse")}
 #kmes0 <- 202107
 #kmes1 <- 202109
 
 future <- c(202109)
-final_train <- c(202007, 202006, 202105, 202104,
-                 202103, 202102, 202101, 202012, 202011, 202010, 202009)
+final_train <- c(202009)
+#final_train <- c(202007, 202006, 202105, 202104,
+#                 202103, 202102, 202101, 202012, 202011, 202010, 202009)
 
 
 #------------------------------------------------------------------------------
@@ -64,20 +64,20 @@ setwd("~/buckets/b1/") # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar
 #dataset <- fread("~/buckets/b1/expw/DT-0001/dataset.csv.gz")
-#dataset <- fread("~/buckets/b1/expw/DR-0001/dataset.csv.gz")
-dataset <- fread("~/buckets/b1/expw/DR-0002/dataset.csv.gz")
+dataset <- fread("~/buckets/b1/expw/DR-0001/dataset.csv.gz")
+#dataset <- fread("~/buckets/b1/expw/DR-0002/dataset.csv.gz")
 #DT_incorporar_dataset_competencia2024()
 
 dir.create("./exp/", showWarnings = FALSE)
 dir.create("./exp/DR3610/", showWarnings = FALSE)
 setwd("./exp/DR3610/")
 
-final_train <- as.vector(dataset %>% distinct(foto_mes))$foto_mes
+#final_train <- as.vector(dataset %>% distinct(foto_mes))$foto_mes
 
 future <- c(202109)
 #final_train <- c(202007, 202006, 202105, 202104,
 #                             202103, 202102, 202101, 202012, 202011, 202010, 202009)
-
+final_train <- c(202009)
 
 #dataset <- dataset[foto_mes %in% final_train]
 
@@ -112,7 +112,7 @@ campos_buenos <- campos_buenos[campos_buenos %like%
 
 
 
-pdf( paste0("densidades_entrenamiento_testing DR02.pdf") )
+pdf( paste0("densidades_entrenamiento_testing mes09 - DR01.pdf") )
 
 for (campo in campos_buenos) {
   cat(campo, "  ")
