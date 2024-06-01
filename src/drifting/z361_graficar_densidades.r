@@ -52,10 +52,10 @@ graficar_campo <- function(campo) {
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 # Aqui comienza el programa
-setwd("~/buckets/b1/") # Establezco el Working Directory
+setwd("~/Google Drive/ITBA/mineria/") # Establezco el Working Directory
 
 # cargo el dataset donde voy a entrenar
-dataset <- fread("~/datasets/dataset_pequeno.csv")
+dataset <- fread("./datasets/dataset_pequeno.csv")
 
 dir.create("./exp/", showWarnings = FALSE)
 dir.create("./exp/DR3610/", showWarnings = FALSE)
