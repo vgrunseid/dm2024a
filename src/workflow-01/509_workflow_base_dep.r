@@ -8,6 +8,7 @@ require("rlang")
 require("yaml")
 require("data.table")
 
+
 # creo environment global
 envg <- env()
 

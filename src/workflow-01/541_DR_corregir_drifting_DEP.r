@@ -9,6 +9,7 @@ gc(full = TRUE) # garbage collection
 
 require("data.table")
 require("yaml")
+require("dplyr")
 
 #cargo la libreria
 # args <- c( "~/dm2024a" )
