@@ -7,7 +7,7 @@ gc(full = TRUE) # garbage collection
 require("rlang")
 require("yaml")
 require("data.table")
-
+require("dplyr)
 
 # creo environment global
 envg <- env()
