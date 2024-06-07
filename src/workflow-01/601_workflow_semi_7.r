@@ -463,7 +463,7 @@ wf_semillerio9 <- function( pnombrewf )
 
   DT_incorporar_dataset_competencia2024()
   CA_catastrophe_base( metodo="Ninguno") #vcg
-  CN_canaritos_asesinos_base(ratio=1, desvio=0) #vcg
+#  CN_canaritos_asesinos_base(ratio=1, desvio=0) #vcg
   FEintra_base()
   CN_canaritos_asesinos_base(ratio=1, desvio=0) #vcg
 #  DR_drifting_base(metodo="deflacion") 
