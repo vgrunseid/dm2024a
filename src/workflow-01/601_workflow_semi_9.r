@@ -358,7 +358,7 @@ HT_tuning_base <- function( pinputexps, bypass=FALSE)
 
     extra_trees = FALSE,
     # Parte variable
-    learning_rate = c( 0.01, 0.3 ),
+    learning_rate = c( 0.01, 0.8 ), #vcg
     feature_fraction = c( 0.1, 0.9 ),
     num_leaves = c( 8L,  256L,  "integer" ),
     min_data_in_leaf = c( 100L, 10000L, "integer" )
@@ -401,7 +401,7 @@ ZZ_final_base9 <- function( pinputexps )
 
 
   # default 5 semillas
-  param_local$qsemillas <- 5
+  param_local$qsemillas <- 10
 
   return( exp_correr_script( param_local ) ) # linea fija
 }
