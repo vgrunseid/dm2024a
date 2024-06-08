@@ -457,14 +457,14 @@ wf_semillerio9 <- function( pnombrewf )
 
   DT_incorporar_dataset_competencia2024()
     CA_catastrophe_base( metodo="MachineLearning")
-    CN_canaritos_asesinos_base(ratio=1, desvio=0)
+#    CN_canaritos_asesinos_base(ratio=1, desvio=0)
     
       FEintra_base()
       CN_canaritos_asesinos_base(ratio=1, desvio=0)
         DR_drifting_base(metodo="ninguno")
         #CN_canaritos_asesinos_base(ratio=1, desvio=0)
           FEhist_base()
-          CN_canaritos_asesinos_base(ratio=0.2, desvio=4.0)
+          CN_canaritos_asesinos_base(ratio=1, desvio=0)
              FErf_attributes_base()
   CN_canaritos_asesinos_base(ratio=1, desvio=0)
 
