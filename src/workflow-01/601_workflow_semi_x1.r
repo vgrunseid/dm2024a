@@ -456,7 +456,7 @@ wf_semillerio9 <- function( pnombrewf )
   param_local <- exp_wf_init( pnombrewf ) # linea fija
 
   DT_incorporar_dataset_competencia2024()
-    CA_catastrophe_base( metodo="ninguno")
+    CA_catastrophe_base( metodo="Ninguno")
 #    CN_canaritos_asesinos_base(ratio=1, desvio=0)
     
       FEintra_base()
