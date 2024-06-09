@@ -329,7 +329,7 @@ HT_tuning_base <- function( pinputexps, bypass=FALSE)
   #  los que tienen un vector,  son los que participan de la Bayesian Optimization
 
   param_local$lgb_param <- list(
-    boosting = "rf", # puede ir  dart  , ni pruebe random_forest
+    boosting = "dart", # puede ir  dart  , ni pruebe random_forest
     objective = "binary",
     metric = "custom",
     first_metric_only = TRUE,
@@ -357,7 +357,8 @@ HT_tuning_base <- function( pinputexps, bypass=FALSE)
 
     extra_trees = FALSE,
     # Parte variable
-    learning_rate = c( 0.02, 0.3 ),
+
+    learning_rate = c( 0.01, 0.3 ),
     feature_fraction = c( 0.1, 0.9 ),
     num_leaves = c( 8L,  256L,  "integer" ),
     min_data_in_leaf = c( 100L, 10000L, "integer" )
@@ -460,13 +461,13 @@ wf_semillerio9 <- function( pnombrewf )
 #    CN_canaritos_asesinos_base(ratio=1, desvio=0)
     
       FEintra_base()
-      CN_canaritos_asesinos_base(ratio=1, desvio=0)
+      CN_canaritos_asesinos_base(ratio=0.01, desvio=0)
         DR_drifting_base(metodo="ninguno")
         #CN_canaritos_asesinos_base(ratio=1, desvio=0)
           FEhist_base()
-          CN_canaritos_asesinos_base(ratio=1, desvio=0)
+          CN_canaritos_asesinos_base(ratio=0.01, desvio=0)
              FErf_attributes_base()
-  CN_canaritos_asesinos_base(ratio=1, desvio=0)
+  CN_canaritos_asesinos_base(ratio=0.01, desvio=0)
 
   ts9 <- TS_strategy_base9()
   ht <- HT_tuning_base()
