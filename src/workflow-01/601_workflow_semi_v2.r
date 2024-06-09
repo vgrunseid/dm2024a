@@ -93,7 +93,7 @@ FEintra_base <- function( pinputexps )
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 ) # linea fija
 
 
-  param_local$meta$script <- "/src/workflow-01/z531_FE_intrames.r"
+  param_local$meta$script <- "/src/workflow-01/531_FE_intrames_exp3.r"
 
   param_local$semilla <- NULL  # no usa semilla, es deterministico
 
@@ -461,8 +461,10 @@ wf_semillerio9 <- function( pnombrewf )
     
       FEintra_base()
       CN_canaritos_asesinos_base(ratio=1, desvio=0)
-        DR_drifting_base(metodo="ninguno")
-        #CN_canaritos_asesinos_base(ratio=1, desvio=0)
+        DR_drifting_base(metodo="deflacion") 
+        DR_drifting_base(metodo="rank_simple")
+        
+        CN_canaritos_asesinos_base(ratio=1, desvio=0)
           FEhist_base()
           CN_canaritos_asesinos_base(ratio=1, desvio=0)
              FErf_attributes_base()
