@@ -13,7 +13,7 @@ envg <- env()
 
 envg$EXPENV <- list()
 envg$EXPENV$bucket_dir <- "~/buckets/b1"
-envg$EXPENV$exp_dir <- "~/buckets/b1/expw/"
+envg$EXPENV$exp_dir <- "~/buckets/b1/expw999/"
 envg$EXPENV$wf_dir <- "~/buckets/b1/flow/"
 envg$EXPENV$repo_dir <- "~/dm2024a/"
 envg$EXPENV$datasets_dir <- "~/buckets/b1/datasets/"
@@ -129,8 +129,8 @@ FEhist_base <- function( pinputexps)
   param_local$meta$script <- "/src/workflow-01/z551_FE_historia.r"
 
   param_local$lag1 <- TRUE
-  param_local$lag2 <- FALSE # no me engraso con los lags de orden 2
-  param_local$lag3 <- FALSE # no me engraso con los lags de orden 3
+  param_local$lag2 <- TRUE # no me engraso con los lags de orden 2
+  param_local$lag3 <- TRUE # no me engraso con los lags de orden 3
 
   # no me engraso las manos con las tendencias
   param_local$Tendencias1$run <- TRUE  # FALSE, no corre nada de lo que sigue
@@ -456,15 +456,14 @@ wf_semillerio9 <- function( pnombrewf )
   param_local <- exp_wf_init( pnombrewf ) # linea fija
 
   DT_incorporar_dataset_competencia2024()
-    CA_catastrophe_base( metodo="MachineLearning")
-    CN_canaritos_asesinos_base(ratio=1, desvio=0)
-    
+    CA_catastrophe_base( metodo="Ninguno")
+
       FEintra_base()
       CN_canaritos_asesinos_base(ratio=1, desvio=0)
         DR_drifting_base(metodo="ninguno")
-        #CN_canaritos_asesinos_base(ratio=1, desvio=0)
+        CN_canaritos_asesinos_base(ratio=1, desvio=0)
           FEhist_base()
-          CN_canaritos_asesinos_base(ratio=0.2, desvio=4.0)
+          CN_canaritos_asesinos_base(ratio=1, desvio=0)
              FErf_attributes_base()
   CN_canaritos_asesinos_base(ratio=1, desvio=0)
 
